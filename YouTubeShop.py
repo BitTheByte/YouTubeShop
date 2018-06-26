@@ -304,7 +304,7 @@ while (1):
 	
 
 	except Exception as e:
-		print "[!!!] Fetal Error {}".format(e)
+		print "[!!!] Fatal Error {}".format(e)
 		open('error_log.txt','w').write(str(e))
 
 print "[!] DONE"
