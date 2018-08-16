@@ -1,4 +1,5 @@
 # YouTubeShop
+# This tool is only Python 2.x Compatible
 Youtube bot for auto-like and auto-subscribe
 ```
 >>> ===================================================== <<<
