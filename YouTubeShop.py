@@ -193,7 +193,7 @@ def show_status(action="",channel_id="",live_count=""):
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
 >>> [Version] : 8.0v                                      <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
-[#] Editing this doesn't make you a programmer :)
+[#] Editing this banner doesn't make you a programmer :)
 
 """
 	if action == "START":
