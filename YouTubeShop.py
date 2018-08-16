@@ -5,14 +5,14 @@ import threading
 import urlparse
 import os
 import glob
-
+import platform
 
 SUCCESS_LOGIN  = 0
 FAILED_LOGIN   = 0
 SUCCESS_ACTION = 0
 FAILED_ACTION  = 0
-Threadtimeout = 60
-ThreadPoolSize = 5
+Threadtimeout = 120
+ThreadPoolSize = 10
 storeThreads = []
 
 from urllib3.exceptions import InsecureRequestWarning 
@@ -61,7 +61,7 @@ def G_identifier(email,SessionManager):
 			response = SessionManager.post('https://accounts.google.com/_/signin/sl/lookup', headers=headers, params=params, data=data)
 			return json.loads((response.content).replace(")]}'",""))[0][0][2]
 		except Exception as e:
-			print e
+			print "[E] G_identifier:"+ str(e)
 			pass
 def login(identifier,password,SessionManager):
 	while(1):
@@ -104,7 +104,7 @@ def login(identifier,password,SessionManager):
 			except:
 				return 1
 		except Exception as e:
-			print e
+			print "[E] login:"+ str(e)
 			pass
 def YouTubeSubscribe(url,SessionManager):
 	while(1):
@@ -124,7 +124,7 @@ def YouTubeSubscribe(url,SessionManager):
 			else:
 				return 0
 		except Exception as e:
-			print e
+			print "[E] YouTubeSubscribe:"+ str(e)
 			pass
 def LoginYT(SessionManager):
 	while(1):
@@ -148,7 +148,7 @@ def LoginYT(SessionManager):
 			SessionManager.get('https://accounts.google.com/ServiceLogin', headers=headers, params=params)
 			return 1
 		except Exception as e:
-			print e
+			print "[E] LoginYT:"+ str(e)
 			pass
 def YouTubeLike(url,SessionManager):
 	while (1):
@@ -162,18 +162,23 @@ def YouTubeLike(url,SessionManager):
 			  ('session_token',session_token+"=="),
 			]
 			response = SessionManager.post('https://www.youtube.com/service_ajax', params=params, data=data)
-			check_state = json.loads(response.content)['code']
 
-			if check_state == "SUCCESS":
+			check_state = json.loads(response.content)['code']
+			print check_state
+			if "SUCCESS" in str(check_state):
 				return 1
 			else:
 				return 0
+
 		except Exception as e:
-			print e
+			print "[E] YouTubeLike:"+ str(e)
 			pass
 
 def show_status(action="",channel_id="",live_count=""):
-	os.system("cls")
+	if platform.system() == "Windows":
+		os.system("cls")
+	else:
+		os.system("clear")
 	banner = """
 >>> ===================================================== <<<
 >>> 	                                                  <<<
@@ -186,8 +191,9 @@ def show_status(action="",channel_id="",live_count=""):
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 7.2v                                      <<<
+>>> [Version] : 8.0v                                      <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
+[#] Editing this doesn't make you a programmer :)
 
 """
 	if action == "START":
@@ -197,9 +203,9 @@ def show_status(action="",channel_id="",live_count=""):
 		print banner
 		print s.format(SUCCESS_LOGIN,FAILED_LOGIN,channel_id,live_count)
 	if action == "YT_LIKE":
-		s = "[+] Successful Logins        = {}\n[+] Successful likes      = {}\n[!] Failed Logins = {}\n[!] Failed likes  = {}"
+		s = "[+] Successful Logins = {}\n[+] Successful likes = {}\n[!] Failed Logins = {}\n[!] Failed likes = {}"
 		print banner
-		print s.format(SUCCESS_LOGIN,FAILED_LOGIN,SUCCESS_ACTION,FAILED_ACTION)
+		print s.format(SUCCESS_LOGIN,SUCCESS_ACTION,FAILED_LOGIN,FAILED_ACTION)
 
 
 def YTGetSubCount(url):
@@ -226,11 +232,10 @@ def main(email,password,action,YTUrl):
 		else:
 			SUCCESS_LOGIN += 1
 		
-		
 		if action.upper() == "YT_SUB":
 			try:
 				if YouTubeSubscribe(YTUrl,SessionManager):
-					pass
+					SUCCESS_ACTION += 1
 				else:
 					FAILED_ACTION += 1
 			except:
@@ -239,7 +244,7 @@ def main(email,password,action,YTUrl):
 		if action.upper() == "YT_LIKE":
 			try:
 				if YouTubeLike(YTUrl,SessionManager):
-					pass
+					SUCCESS_ACTION += 1
 				else:
 					FAILED_ACTION += 1
 			except:
@@ -301,12 +306,10 @@ while (1):
 	except Exception as e:
 		open('loop_error.txt','w').write(str(e))
 		pass
-	
-
 	except Exception as e:
 		print "[!!!] Fatal Error {}".format(e)
 		open('error_log.txt','w').write(str(e))
 
+
 print "[!] DONE"
-import time
-time.sleep(60)
+raw_input("[!] Finished Press enter to exit")
