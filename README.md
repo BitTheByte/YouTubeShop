@@ -14,7 +14,7 @@ This tool is only Python 2.x Compatible
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 8.0v                                      <<<
+>>> [Version] : 8.1v                                      <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 ```
 ```bash
