@@ -164,7 +164,6 @@ def YouTubeLike(url,SessionManager):
 			response = SessionManager.post('https://www.youtube.com/service_ajax', params=params, data=data)
 
 			check_state = json.loads(response.content)['code']
-			print check_state
 			if "SUCCESS" in str(check_state):
 				return 1
 			else:
@@ -191,7 +190,7 @@ def show_status(action="",channel_id="",live_count=""):
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 8.0v                                      <<<
+>>> [Version] : 8.1v                                      <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 [#] Editing this banner doesn't make you a programmer :)
 
@@ -223,7 +222,7 @@ def main(email,password,action,YTUrl):
 
 		SessionManager 	= requests.Session()
 		identifier   	= G_identifier(email,SessionManager)
-		logged 			= login(identifier,password,SessionManager)
+		logged 		= login(identifier,password,SessionManager)
 		LoginYT(SessionManager)
 
 		if not logged:
@@ -307,7 +306,7 @@ while (1):
 		open('loop_error.txt','w').write(str(e))
 		pass
 	except Exception as e:
-		print "[!!!] Fatal Error {}".format(e)
+		print "[!!!] Fatal Error : {}".format(e)
 		open('error_log.txt','w').write(str(e))
 
 
