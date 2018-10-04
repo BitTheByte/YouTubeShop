@@ -23,3 +23,4 @@ $ pip install requests
 ```bash
 $ python YouTubeShop.py
 ```
+**Buy me a digital coffee :)** BTC:36JDUYhEWWiPBXssQYeR2iwoG12KT8dmtJ**
