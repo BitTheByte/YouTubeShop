@@ -1,8 +1,3 @@
-"""
-youtubegmail.txt
-ysub.txt
-python yutubesub.py 
-"""
 import requests
 import json
 import re
@@ -169,7 +164,6 @@ def YouTubeLike(url,SessionManager):
 			response = SessionManager.post('https://www.youtube.com/service_ajax', params=params, data=data)
 
 			check_state = json.loads(response.content)['code']
-			print(check_state)
 			if "SUCCESS" in str(check_state):
 				return 1
 			else:
