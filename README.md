@@ -1,7 +1,9 @@
 # YouTubeShop
  
 Youtube bot for auto-like and auto-subscribe  
-This tool is only Python 2.x Compatible
+~~This tool is only Python 2.x Compatible~~  
+Thanks to [gaber](https://www.youtube.com/watch?v=ru1xdOo0LTg) this tool is python 2/3 Compatible  
+Use ```YoutubeShop.py``` for python 2 and ```YoutubeShop3.py``` for python 3
 ```
 >>> ===================================================== <<<
 >>> 	                                                  <<<
