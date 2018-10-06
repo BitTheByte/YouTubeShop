@@ -190,7 +190,7 @@ def show_status(action="",channel_id="",live_count=""):
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 8.0v                                      <<<
+>>> [Version] : 8.1v                                      <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 [#] Editing this banner doesn't make you a programmer :)
 """
