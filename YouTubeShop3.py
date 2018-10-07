@@ -15,8 +15,8 @@ Threadtimeout = 120
 ThreadPoolSize = 10
 storeThreads = []
 
-from urllib3.exceptions import InsecureRequestWarning 
-requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
+#from urllib3.exceptions import InsecureRequestWarning 
+#requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 def threadManager(function,Funcargs,Startthreshold,Threadtimeout=5):
 	if len(storeThreads) != Startthreshold:
@@ -59,7 +59,7 @@ def G_identifier(email,SessionManager):
 			  ('pstMsg', '1')
 			]
 			response = SessionManager.post('https://accounts.google.com/_/signin/sl/lookup', headers=headers, params=params, data=data)
-			return json.loads((response.content).replace(")]}'",""))[0][0][2]
+			return json.loads((response.content).decode("utf-8").replace(")]}'",""))[0][0][2]
 		except Exception as e:
 			print("[E] G_identifier:"+ str(e))
 			pass
@@ -94,7 +94,7 @@ def login(identifier,password,SessionManager):
 			  ('pstMsg', '1'),
 			]
 			response = SessionManager.post('https://accounts.google.com/_/signin/sl/challenge', headers=headers, params=params, data=data)
-			login  = (response.content).replace(")]}'","")
+			login  = ((response.content).decode("utf-8")).replace(")]}'","")
 			login =  json.loads(login)
 			try:
 				if "CheckCookie" in response:
@@ -109,7 +109,7 @@ def login(identifier,password,SessionManager):
 def YouTubeSubscribe(url,SessionManager):
 	while(1):
 		try:
-			html = SessionManager.get(url).content
+			html = (SessionManager.get(url).content).decode("utf-8") 
 			session_token = (re.findall("XSRF_TOKEN\W*(.*)=", html , re.IGNORECASE)[0]).split('"')[0]
 			id_yt = url.replace("https://www.youtube.com/channel/","")
 			params = (('name', 'subscribeEndpoint'),)
@@ -118,7 +118,7 @@ def YouTubeSubscribe(url,SessionManager):
 			  ('session_token', session_token+"=="),
 			]
 			response = SessionManager.post('https://www.youtube.com/service_ajax', params=params, data=data)
-			check_state = json.loads(response.content)['code']
+			check_state = json.loads((response.content).decode("utf-8"))['code']
 			if check_state == "SUCCESS":
 				return 1
 			else:
@@ -154,7 +154,7 @@ def YouTubeLike(url,SessionManager):
 	while (1):
 		try:
 			vid_id = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)['v'][0]
-			html = SessionManager.get(url).content
+			html = (SessionManager.get(url).content).decode("utf-8") 
 			session_token = (re.findall("XSRF_TOKEN\W*(.*)=", html , re.IGNORECASE)[0]).split('"')[0]
 			params = (('name', 'likeEndpoint'),)
 			data = [
@@ -163,7 +163,7 @@ def YouTubeLike(url,SessionManager):
 			]
 			response = SessionManager.post('https://www.youtube.com/service_ajax', params=params, data=data)
 
-			check_state = json.loads(response.content)['code']
+			check_state = json.loads((response.content).decode("utf-8"))['code']
 			if "SUCCESS" in str(check_state):
 				return 1
 			else:
