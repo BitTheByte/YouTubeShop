@@ -1,4 +1,4 @@
-# YouTubeShop
+# :notes: YouTubeShop (YTS)
  
 Youtube bot for auto-like and auto-subscribe  
 Use ```YoutubeShop.py``` for python 2 and ```YoutubeShop3.py``` for python 3
@@ -33,6 +33,6 @@ Thanks to [gaber](https://github.com/geper) this tool is python 3 Compatible
 
 
 # Donation
-**Buy me a digital coffee :)** BTC:36JDUYhEWWiPBXssQYeR2iwoG12KT8dmtJ  
+**Buy me a digital coffee :)** BTC:36JDUYhEWWiPBXssQYeR2iwoG12KT8dmtJ :point_left:  
 
 Made with ❤️ in Egypt 
