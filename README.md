@@ -25,7 +25,7 @@ $ python YouTubeShop.py
 ```
 # Updates
 **11/04/2018**: This tools is not working any more please help if you can .. updates are coming soon ⚡️  
-**11/04/2018**: Back to work! however the fix is unsable and may result in false positives 😃
+**11/04/2018**: Back to work! however the fix is unstable and may result in false positives 😃
 
 
 # Special thanks 
