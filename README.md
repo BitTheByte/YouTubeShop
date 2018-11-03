@@ -14,7 +14,7 @@ Use ```YoutubeShop.py``` for python 2 and ```YoutubeShop3.py``` for python 3
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 8.1v                                      <<<
+>>> [Version] : 8.2v                                      <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 ```
 ```bash
