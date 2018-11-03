@@ -81,18 +81,19 @@ def login(identifier,password,SessionManager):
 			    'authority': 'accounts.google.com',
 			    'dnt': '1',
 			}
-			data = [
-			  ('continue', 'https://www.youtube.com/signin?hl=en&app=desktop&next=%2F&action_handle_signin=true'),
-			  ('service', 'youtube'),
-			  ('hl', 'en'),
-			  ('f.req', '["{G_identifier}",null,1,null,[1,null,null,null,["{Password}",null,true]],[null,null,[2,1,null,1,"https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Fhl%3Den%26app%3Ddesktop%26next%3D%252F%26action_handle_signin%3Dtrue&hl=en&service=youtube&passive=true&uilel=3",null,[],4,[],"GlifWebSignIn"],1,[null,null,[]],null,null,null,true]]'.format(G_identifier=identifier,Password=password)),
-			  ('cookiesDisabled', 'false'),
-			  ('deviceinfo', '[null,null,null,[],null,"EG",null,null,[],"GlifWebSignIn",null,[null,null,[]]]'),
-			  ('gmscoreversion', 'undefined'),
-			  ('checkConnection', 'youtube:202:1'),
-			  ('checkedDomains', 'youtube'),
-			  ('pstMsg', '1'),
-			]
+			data = {
+			  'continue': 'https://www.google.com/?gws_rd=ssl',
+			  'hl': 'en',
+			  'f.req': '["{}",null,1,null,[1,null,null,null,["{}",null,true]],[null,null,[2,1,null,1,"https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F%3Fgws_rd%3Dssl",null,[],4,[],"GlifWebSignIn"],1,[null,null,[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[]],null,null,null,true]]'.format(identifier,password),
+			  'bgRequest': '["identifier",""]',
+			  'cookiesDisabled': 'false',
+			  'deviceinfo': '[null,null,null,[],null,"EG",null,null,[],"GlifWebSignIn",null,[null,null,[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[]]]',
+			  'gmscoreversion': 'undefined',
+			  'checkConnection': 'youtube:447:1',
+			  'checkedDomains': 'youtube',
+			  'pstMsg': '1',
+			}
+
 			response = SessionManager.post('https://accounts.google.com/_/signin/sl/challenge', headers=headers, params=params, data=data)
 			login  = ((response.content).decode("utf-8")).replace(")]}'","")
 			login =  json.loads(login)
