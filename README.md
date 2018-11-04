@@ -31,6 +31,13 @@ $ python YouTubeShop.py
 # Special thanks 
 Thanks to [gaber](https://github.com/geper) this tool is python 3 Compatible  
 
+# TO-DO
+- Post a commnet
+- Post a random comment based on channel's comments and users
+- Local proxy connection (For debugging)  
+- Local web sever to manage the ouput instead of the console
+- Advanced debugging mode for advanced users
+- Migrate to module instead of single `.py` file
 
 # Donation
 **Buy me a digital coffee :)** BTC:36JDUYhEWWiPBXssQYeR2iwoG12KT8dmtJ :point_left:  
