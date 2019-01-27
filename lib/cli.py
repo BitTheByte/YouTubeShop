@@ -147,7 +147,7 @@ def menu_msg():
 			C2=colorama.Fore.WHITE
 		))
 
-	print("{C0}[!] Working.. please {C1}[CTRL + C]{C0} to show more informations or access debug mode.".format(
+	print("{C0}[!] Working.. Press {C1}[CTRL + C]{C0} to show more informations or access debug mode.".format(
 			C0=colorama.Fore.CYAN,
 			C1=colorama.Fore.YELLOW
 		))
