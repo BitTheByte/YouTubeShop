@@ -1,7 +1,10 @@
 import requests
 import json
 import urllib
-import execption
+try:
+	import execption
+except:
+	import lib.execption as execption
 
 class GAuth(object):
 	def __init__(self,email,password):
