@@ -1,7 +1,10 @@
 import requests
 import json
 import re
-import urlparse
+try:
+	import urllib.parse as urlparse
+except:
+	import urlparse
 
 def subscribe(channel_id,session):
 		xsrf = (re.findall("XSRF_TOKEN\W*(.*)=", session.get("https://www.youtube.com/channel/%s" % channel_id).content , re.IGNORECASE)[0]).split('"')[0]
