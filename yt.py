@@ -8,8 +8,8 @@ import signal
 
 
 cli.banner()
-action 			= cli.ask_action()
-threader 		= Threader(cli.ask_threads())
+action 		= cli.ask_action()
+threader 	= Threader(cli.ask_threads())
 accounts_path 	= cli.ask_accounts_file()
 action_path 	= cli.ask_action_file()
 
@@ -82,7 +82,7 @@ for yt_id in cli.read_action_file(action_path):
 	for credentials in cli.read_acounts_file(accounts_path):
 		if action == "l":
 			threader.put(Like,[credentials[0],credentials[1],yt_id])
-		else:
+		elif action == "s":
 			threader.put(Subscribe,[credentials[0],credentials[1],yt_id])
 
 threader.finish_all()
