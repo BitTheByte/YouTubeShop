@@ -33,7 +33,7 @@ $ python YouTubeShop.py
 
 
 # TO-DO
-- Post a commnet
+- Post a commnet (Scheduled to the next public release)
 - Post a random comment based on channel's comments and users
 - Local proxy connection (For debugging)  ✓
 - Local web sever to manage the ouput instead of the console
