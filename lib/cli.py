@@ -81,7 +81,7 @@ def ask_action_file():
 
 def ask_action():
 	while 1:
-		action = input("{C0}[Q] {C1}Choose an option ({C3}l=like {C4}, {C3}s=subscibe{C1}): ".format(
+		action = input("{C0}[Q] {C1}Choose an option ({C3}l=like {C4}, {C3}s=subscribe{C1}): ".format(
 				C0=colorama.Fore.GREEN,
 				C1=colorama.Fore.CYAN,
 				C3=colorama.Fore.LIGHTCYAN_EX,
