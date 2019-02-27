@@ -23,7 +23,7 @@ def banner():
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 12.8v                                     <<<
+>>> [Version] : 12.8.1v                                     <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 [#] Editing this banner doesn't make you a programmer :)
 """
@@ -81,14 +81,14 @@ def ask_action_file():
 
 def ask_action():
 	while 1:
-		action = input("{C0}[Q] {C1}Choose your options ({C3}l=like {C4}, {C3}s=subscibe{C1}): ".format(
+		action = input("{C0}[Q] {C1}Choose an option ({C3}l=like {C4}, {C3}s=subscibe{C1}): ".format(
 				C0=colorama.Fore.GREEN,
 				C1=colorama.Fore.CYAN,
 				C3=colorama.Fore.LIGHTCYAN_EX,
 				C4=colorama.Fore.WHITE
 			))
 		if action.lower() != "l" or action.lower() != 's':
-			error("Please choose a vaild option")
+			error("Please choose a valid option")
 		else:
 			return action.lower()
 
@@ -108,7 +108,7 @@ def read_action_file(path):
 def show_status(login,failed,succ1,fail1):
 	os.system("cls")
 	banner()
-	print(colorama.Fore.LIGHTBLACK_EX+"[!] Welcome to debug more press [CTRL+C] again to update the counters")
+	print(colorama.Fore.LIGHTBLACK_EX+"[!] Welcome to debug mode press [CTRL+C] again to update the counters")
 	print("{C0}[{C1}*{C0}] {C2}Successful logins: {C3}{text}".format(
 			C0=colorama.Fore.BLUE,
 			C1=colorama.Fore.RED,
@@ -147,7 +147,7 @@ def menu_msg():
 			C2=colorama.Fore.WHITE
 		))
 
-	print("{C0}[!] Working.. Press {C1}[CTRL + C]{C0} to show more informations or access debug mode.".format(
+	print("{C0}[!] Working.. Press {C1}[CTRL + C]{C0} to access the debug mode.".format(
 			C0=colorama.Fore.CYAN,
 			C1=colorama.Fore.YELLOW
 		))
