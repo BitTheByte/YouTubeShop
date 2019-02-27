@@ -87,7 +87,7 @@ def ask_action():
 				C3=colorama.Fore.LIGHTCYAN_EX,
 				C4=colorama.Fore.WHITE
 			))
-		if action.lower() != "l" or action.lower() != 's':
+		if (action.lower()).strip() != "l" and (action.lower()).strip() != 's':
 			error("Please choose a valid option")
 		else:
 			return action.lower()
