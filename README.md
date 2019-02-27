@@ -14,7 +14,7 @@ Youtube bot for auto-like and auto-subscribe
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 12.8v                                     <<<
+>>> [Version] : 12.8.1v                                     <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 ```
 ```bash
