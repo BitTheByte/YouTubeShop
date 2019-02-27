@@ -25,11 +25,13 @@ $ pip install colorama
 $ python YouTubeShop.py
 ```
 
-![](screenshots/1.png)
+![](screenshots/main.png)
+
 # Updates
 **11/04/2018**: This tools is not working any more please help if you can .. updates are coming soon ⚡️  
 **11/04/2018**: Back to work! however the fix is unstable and may result in false positives 😃  
 **01/24/2019**: The ultimate update!
+**02/27/2019**: Fixed alot of typing mistakes and program logic 
 
 
 # TO-DO
