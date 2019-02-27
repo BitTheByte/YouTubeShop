@@ -23,7 +23,7 @@ def banner():
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 12.8.1v                                     <<<
+>>> [Version] : 12.8.1v                                   <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 [#] Editing this banner doesn't make you a programmer :)
 """
