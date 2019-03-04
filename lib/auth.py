@@ -14,7 +14,7 @@ class GAuth(object):
 		self.session.headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
 	
 	def __g_token(self):
-		self.session.get('https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com.eg/')
+		self.session.get('https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/')
 		headers = {
 		    'x-same-domain': '1',
 		    'origin': 'https://accounts.google.com',
@@ -29,7 +29,7 @@ class GAuth(object):
 		}
 
 		data = {
-		  'continue': 'https://www.google.com.eg/',
+		  'continue': 'https://www.google.com/',
 		  'hl': 'en',
 		  'f.req': '["{email}","",[],null,"EG",null,null,2,false,true,[null,null,[2,1,null,1,"https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com.eg%2F",null,[],4,[],"GlifWebSignIn"],1,[null,null,[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[],null,null,null,[],[]],null,null,null,true],"{email}"]'.format(email=self.email),
 		  'cookiesDisabled': 'false',
@@ -47,7 +47,6 @@ class GAuth(object):
 		headers = {
 		    'authority': 'accounts.google.com',
 		    'upgrade-insecure-requests': '1',
-		    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
 		    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
 		    'accept-encoding': 'gzip, deflate, br',
 		    'accept-language': 'en-US,en;q=0.9'
