@@ -43,7 +43,7 @@ class GAuth(object):
 		response = self.session.post('https://accounts.google.com/_/signin/sl/lookup?hl=en&_reqid=144088&rt=j', headers=headers, data=data)
 		return json.loads((response.content).replace(")]}'",""))[0][0][2]
 
-	def ServiceLogin(self,name,retern_url):
+	def ServiceLogin(self,name,return_url):
 		headers = {
 		    'authority': 'accounts.google.com',
 		    'upgrade-insecure-requests': '1',
@@ -53,7 +53,7 @@ class GAuth(object):
 		}
 		params = (
 		    ('passive', 'true'),
-		    ('continue', retern_url),
+		    ('continue', return_url),
 		    ('hl', 'en'),
 		    ('uilel', '3'),
 		    ('service', name),
