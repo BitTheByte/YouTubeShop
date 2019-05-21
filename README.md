@@ -74,7 +74,7 @@ UCto7D1L-MiRoOziCXK9uT5Q
 [A]:  Use the emails combo file you've created   
     
 [❓]: Program asking me to `Enter action file path`  
-[A]:  The action file is the file which has the channels/videos IDs in it. Refear to Subscription/Like sections to know how to create one
+[A]:  The action file is the file which has the channels/videos IDs in it. Refear to [Subscription](#subscription) or [Like](#like) section to know how to create one
 
 # Updates
 **11/04/2018**: This tools is not working any more please help if you can .. updates are coming soon ⚡️  
