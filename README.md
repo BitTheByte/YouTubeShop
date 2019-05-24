@@ -65,7 +65,7 @@ UCto7D1L-MiRoOziCXK9uT5Q
 
 # FAQ
 [❓]: Which python version do i need?    
-[A]:  Python 2.7  
+[A]:  Python 2.7.16    
   
 [❓]: I'm not getting any results, why?  
 [A]:  Check your emails 
