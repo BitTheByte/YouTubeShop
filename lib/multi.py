@@ -2,7 +2,6 @@ try:
 	import queue
 except Exception as e:
 	import Queue as queue
-
 import threading
 
 class Threader:
@@ -25,10 +24,8 @@ class Threader:
 			if len(remain) == 0:
 				break
 
-
 	def on_waiting(self):
 		return self.q.qsize()
-
 
 	def pop(self):
 		return self.q.queue.pop()
@@ -45,4 +42,3 @@ class Threader:
 		if self.q.qsize() >= self.pool_size:
 			for _ in xrange(self.q.qsize()): self.__t()
 			self.__wait()
-

@@ -2,7 +2,6 @@ from __future__ import print_function
 import colorama 
 import os
 
-
 try:
     input = raw_input
 except NameError:
@@ -23,7 +22,7 @@ def banner():
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 12.8.1v                                   <<<
+>>> [Version] : 12.8.2v                                   <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 [#] Editing this banner doesn't make you a programmer :)
 """
@@ -78,7 +77,6 @@ def ask_action_file():
 		else:
 			return path
 
-
 def ask_action():
 	while 1:
 		action = input("{C0}[Q] {C1}Choose an option ({C3}l=like {C4}, {C3}s=subscribe{C1}): ".format(
@@ -103,7 +101,6 @@ def read_action_file(path):
 	for line in file:
 		token = line.strip()
 		yield token
-
 
 def show_status(login,failed,succ1,fail1):
 	os.system("cls")
@@ -137,8 +134,6 @@ def show_status(login,failed,succ1,fail1):
 			C3=colorama.Fore.CYAN,
 			text=fail1
 		))
-
-
 
 def menu_msg():
 	input("{C0}[{C1}*{C0}] {C2}Press enter to start .. ".format(

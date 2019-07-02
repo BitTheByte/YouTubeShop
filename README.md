@@ -14,7 +14,7 @@ Youtube bot for auto-like and auto-subscribe
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 12.8.1v                                   <<<
+>>> [Version] : 12.8.2v                                   <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 ```
 ```bash
@@ -76,15 +76,8 @@ UCto7D1L-MiRoOziCXK9uT5Q
 [❓]: Program asking me to `Enter action file path`  
 [A]:  The action file is the file which has the channels/videos IDs in it. Refear to [Subscription](#subscription) or [Like](#like) section to know how to create one
 
-# Updates
-**11/04/2018**: This tools is not working any more please help if you can .. updates are coming soon ⚡️  
-**11/04/2018**: Back to work! however the fix is unstable and may result in false positives 😃  
-**01/24/2019**: The ultimate update!  
-**02/27/2019**: Fixed alot of typing mistakes and program logic 
-
-
 # TO-DO
-- Post a comment (Scheduled to the next public release)
+- Post a comment (Scheduled to the next public release)(Delayed)
 - Post a random comment based on channel's comments and users
 - Local proxy connection (For debugging)  ✓
 - Local web sever to manage the ouput instead of the console
