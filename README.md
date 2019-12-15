@@ -29,6 +29,10 @@ $ pip install selenium
 $ python yt.py
 ```
 
+# Notes
+
+Make sure to have chrome installed before using. I didn't use selenium for full automation just to compute botgaurd tokens inorder to login this should be a temporary fix to the botgaurd problem.
+
 # Supported platforms
 - Windows
 
@@ -38,7 +42,7 @@ $ python yt.py
   - 2 Files [Emails Combo, Action File]
 
 ### Emails
-Your emails combo file should follow this format e.g[ [accounts.txt](https://github.com/BitTheByte/YouTubeShop/blob/master/test/accounts.txt) ]
+Your emails combo file should follow this format e.g[ [accounts.txt](https://github.com/BitTheByte/YouTubeShop/blob/master/examples/accounts.txt) ]
 ```
 email0@domain.com:0123456789
 email1@domain.com:0123456789
@@ -47,7 +51,7 @@ email2@domain.com:0123456789
 
   
 ### Like
-You need to create a file which contains videos IDs list e.g[ [actions.txt](https://github.com/BitTheByte/YouTubeShop/blob/master/test/actions.txt) ]. Don't use the full url use the id only
+You need to create a file which contains videos IDs list e.g[ [actions.txt](https://github.com/BitTheByte/YouTubeShop/blob/master/examples/actions.txt) ]. Don't use the full url use the id only
 - https://www.youtube.com/watch?v=XnEqfTjp66A [❌]
 - XnEqfTjp66A [✔️]
 #### Multiple Videos Example
