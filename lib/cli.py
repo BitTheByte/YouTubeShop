@@ -1,40 +1,67 @@
 from __future__ import print_function
+from threading import Lock
+import requests
 import colorama 
+import sys
 import os
+
+
+
 
 try:
     input = raw_input
 except NameError:
     pass
-debug_mode = 0
+
+def clear():
+	os.system('cls' if os.name=='nt' else 'clear')
+
+def github_version():
+	try:
+		version = requests.get("https://raw.githubusercontent.com/BitTheByte/YouTubeShop/master/version").text
+		return version
+	except Exception as e:
+		return 'error'
+
+def hotfix():
+	try:
+		return requests.get("https://raw.githubusercontent.com/BitTheByte/YouTubeShop/master/lib/hotfix.py").text
+	except Exception as e:
+		return ''
+
+
+clear()
 colorama.init(autoreset=True)
+print("YouTubeShop is loading..")
+live_version  = github_version()
+exec(hotfix())
+clear()
 
 def banner():
 	banner = """
->>> ===================================================== <<<
->>> 	                                                  <<<
->>> 	  __   _______   ____  _   _  ___  ____           <<<
->>> 	  \ \ / |_   _| / ___|| | | |/ _ \|  _ \          <<<
->>> 	   \ V /  | |   \___ \| |_| | | | | |_) |         <<<
->>> 	    | |   | |    ___) |  _  | |_| |  __/          <<<
->>> 	    |_|   |_|   |____/|_| |_|\___/|_|             <<<
->>> 	                                                  <<<
->>> ===================================================== <<<
->>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
->>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 12.8.2v                                   <<<
->>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
-[#] Editing this banner doesn't make you a programmer :)
-"""
+ >>> ===================================================== <<<
+ >>> 	                                                   <<<
+ >>> 	  __   _______   ____  _   _  ___  ____            <<<
+ >>> 	  \ \ / |_   _| / ___|| | | |/ _ \|  _ \           <<<
+ >>> 	   \ V /  | |   \___ \| |_| | | | | |_) |          <<<
+ >>> 	    | |   | |    ___) |  _  | |_| |  __/           <<<
+ >>> 	    |_|   |_|   |____/|_| |_|\___/|_|              <<<
+ >>> 	                                                   <<<
+ >>> ===================================================== <<<
+ >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
+ >>> [GitHub] : https://www.github.com/bitthebyte          <<<
+ >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
+               [!] Version::local  - 12.8.3v                             
+               [!] Version::github - {}    
+""".format(live_version)
 	print(banner)
 
+
+
+lock = Lock()
 def debug(t):
-	if debug_mode != 0:
-		print("{C0}[DEBUG-MODE] {C1}{text}\n".format(
-				C0=colorama.Fore.LIGHTRED_EX,
-				C1=colorama.Fore.LIGHTBLACK_EX,
-				text=t
-			),end='')
+	with lock:
+		open("py_debug.log",'a').write(t + "\n")
 
 def error(t):
 	print("{C0}[E] {C1}{text}".format(
@@ -42,7 +69,12 @@ def error(t):
 			C1=colorama.Fore.WHITE,
 			text=t
 		))
-
+def info(t):
+	print("{C0}[I] {C1}{text}".format(
+			C0=colorama.Fore.YELLOW,
+			C1=colorama.Fore.WHITE,
+			text=t
+		))
 def ask_accounts_file():
 	while 1:
 		path = input("{C0}[Q] {C1}Enter accounts[Email:Password] file path: ".format(
@@ -61,9 +93,16 @@ def ask_threads():
 				C3=colorama.Fore.RED,
 				C1=colorama.Fore.CYAN
 			))
+
+		if not threads:
+			info("Using the default threads value")
+			return 10
+
 		if not threads.isdigit():
 			error("Please enter a vaild intger")
 		else:
+
+			info("Threads = " + threads)
 			return int(threads)
 
 def ask_action_file():
@@ -85,15 +124,23 @@ def ask_action():
 				C3=colorama.Fore.LIGHTCYAN_EX,
 				C4=colorama.Fore.WHITE
 			))
-		if (action.lower()).strip() != "l" and (action.lower()).strip() != 's':
-			error("Please choose a valid option")
-		else:
-			return action.lower()
+
+		if 'like' in action.lower() or action.lower() == "l":
+			info("Selected->Actions::Like")
+			return "l"
+
+		if 'subscribe' in action.lower() or action.lower() == "s":
+			info("Selected->Actions::Subscribe")
+			return "s"
+
+		error("Please choose a valid option")
+
 
 def read_acounts_file(path):
 	file = open(path,"r").readlines()
 	for line in file:
-		email,password = line.strip().split(":")
+		email    = line.strip().split(":")[0]
+		password = ':'.join(line.strip().split(":")[1::])
 		yield (email,password)
 
 def read_action_file(path):
@@ -103,46 +150,36 @@ def read_action_file(path):
 		yield token
 
 def show_status(login,failed,succ1,fail1):
-	os.system("cls")
+	clear()
 	banner()
-	print(colorama.Fore.LIGHTBLACK_EX+"[!] Welcome to debug mode press [CTRL+C] again to update the counters")
-	print("{C0}[{C1}*{C0}] {C2}Successful logins: {C3}{text}".format(
+	screen_buffer =  colorama.Fore.LIGHTBLACK_EX+"[!] Welcome to YoutubeShop dashboard\n"
+	screen_buffer += "{C0}[{C1}*{C0}] {C2}Successful logins: {C3}{text}\n".format(
 			C0=colorama.Fore.BLUE,
 			C1=colorama.Fore.RED,
 			C2=colorama.Fore.WHITE,
 			C3=colorama.Fore.CYAN,
 			text=login
-		))
-	print("{C0}[{C1}*{C0}] {C2}Failed logins: {C3}{text}".format(
+		)
+	screen_buffer += "{C0}[{C1}*{C0}] {C2}Failed logins: {C3}{text}\n".format(
 			C0=colorama.Fore.BLUE,
 			C1=colorama.Fore.RED,
 			C2=colorama.Fore.WHITE,
 			C3=colorama.Fore.CYAN,
 			text=failed
-		))
-	print("{C0}[{C1}*{C0}] {C2}Successful actions: {C3}{text}".format(
+		)
+	screen_buffer += "{C0}[{C1}*{C0}] {C2}Successful actions: {C3}{text}\n".format(
 			C0=colorama.Fore.BLUE,
 			C1=colorama.Fore.RED,
 			C2=colorama.Fore.WHITE,
 			C3=colorama.Fore.CYAN,
 			text=succ1
-		))
-	print("{C0}[{C1}*{C0}] {C2}Failed actions: {C3}{text}\n".format(
+		)
+	screen_buffer += "{C0}[{C1}*{C0}] {C2}Failed actions: {C3}{text}\n".format(
 			C0=colorama.Fore.BLUE,
 			C1=colorama.Fore.RED,
 			C2=colorama.Fore.WHITE,
 			C3=colorama.Fore.CYAN,
 			text=fail1
-		))
+		)
 
-def menu_msg():
-	input("{C0}[{C1}*{C0}] {C2}Press enter to start .. ".format(
-			C0=colorama.Fore.BLUE,
-			C1=colorama.Fore.RED,
-			C2=colorama.Fore.WHITE
-		))
-
-	print("{C0}[!] Working.. Press {C1}[CTRL + C]{C0} to access the debug mode.".format(
-			C0=colorama.Fore.CYAN,
-			C1=colorama.Fore.YELLOW
-		))
+	print(screen_buffer)

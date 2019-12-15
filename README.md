@@ -14,15 +14,16 @@ Youtube bot for auto-like and auto-subscribe
 >>> ===================================================== <<<
 >>> [DEV] : BitTheByte (Ahmed Ezzat)                      <<<
 >>> [GitHub] : https://www.github.com/bitthebyte          <<<
->>> [Version] : 12.8.2v                                   <<<
+>>> [Version] : 12.8.3v                                   <<<
 >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 ```
 ```bash
 $ pip install requests
 $ pip install colorama
+$ pip install selenium
 ```
 ```bash
-$ python YouTubeShop.py
+$ python yt.py
 ```
 
 ![](screenshots/main.png)
