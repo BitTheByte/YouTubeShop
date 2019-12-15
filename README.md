@@ -17,7 +17,7 @@ Youtube bot for auto-like and auto-subscribe
                       >>> [Version] : 12.8.3v                                   <<<
                       >>> +++++++++++++++++++++++++++++++++++++++++++++++++++++ <<<
 ```
-Showcase: https://streamable.com/s/yi7o0/gcyfiw
+Showcase: https://streamable.com/yi7o0
 
 
 ```bash
