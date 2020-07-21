@@ -1,3 +1,9 @@
+# Notice
+
+Please don't open a new issue **I'm aware of all the problems** however this project is not maintained currently. I might get back working on it soon
+
+
+
 # :notes: YouTubeShop (YTS)
  
 Youtube bot for auto-like and auto-subscribe  
